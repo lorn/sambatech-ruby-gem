@@ -12,15 +12,6 @@ describe Sambatech do
          to_return(:body => fixture("user_media_feed.json"), :headers => {:content_type => "application/json; charset=utf-8"})
      end
 
-     it "should get the correct resource" do
-       Sambatech.user_media_feed()
-       a_get("users/self/feed.json").should have_been_made
-     end
-
-     it "should return the same results as a client" do
-       Sambatech.user_media_feed().should == Sambatech::Client.new.user_media_feed()
-     end
-
    end
 
   describe ".client" do
@@ -52,19 +43,6 @@ describe Sambatech do
     it "should set the endpoint" do
       Sambatech.endpoint = 'http://tumblr.com'
       Sambatech.endpoint.should == 'http://tumblr.com'
-    end
-  end
-
-  describe ".format" do
-    it "should return the default format" do
-      Sambatech.format.should == Sambatech::Configuration::DEFAULT_FORMAT
-    end
-  end
-
-  describe ".format=" do
-    it "should set the format" do
-      Sambatech.format = 'xml'
-      Sambatech.format.should == 'xml'
     end
   end
 

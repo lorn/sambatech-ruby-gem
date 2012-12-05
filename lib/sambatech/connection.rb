@@ -8,7 +8,7 @@ module Sambatech
 
     def connection(raw=false)
       options = {
-        :headers => {'Accept' => "application/#{format}; charset=utf-8", 'User-Agent' => user_agent},
+        :headers => {'Accept' => "application/xml; charset=utf-8", 'User-Agent' => user_agent},
         :proxy => proxy,
         :ssl => {:verify => false},
         :url => endpoint,
@@ -18,9 +18,7 @@ module Sambatech
         connection.use Faraday::Request::UrlEncoded
         connection.use FaradayMiddleware::Mashify unless raw
         unless raw
-          case format.to_s.downcase
-          when 'xml' then connection.use Faraday::Response::ParseXml
-          end
+          connection.use Faraday::Response::ParseXml
         end
         connection.use FaradayMiddleware::RaiseHttpException
         connection.adapter(adapter)
