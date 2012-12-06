@@ -39,7 +39,7 @@ module Sambatech
     end
 
     def formatted_path(path)
-      [path, format].compact.join('.')
+      [path].compact.join('.')
     end
   end
 end

@@ -15,48 +15,16 @@ module Sambatech
       # If getting this data of a protected user, you must authenticate (and be allowed to see that user).
       # @rate_limited true
       # @see TODO:docs url
-      def media_item(*args)
+      def media(*args)
         id = args.first || 'self'
-        response = get("media/#{id}")
+        response = get("medias/#{id}")
         response["data"]
       end
 
-      # Returns a list of the overall most popular media
-      #
-      # @overload media_popular(options={})
-      # @param options [Hash] A customizable set of options.
-      # @return [Hashie::Mash]
-      # @example Returns a list of the overall most popular media
-      # Instagram.media_popular
-      # @see TODO:docs url
-      # @format :json
-      # @authenticated false unless requesting it from a protected user
-      #
-      # If getting this data of a protected user, you must authenticate (and be allowed to see that user).
-      # @rate_limited true
-      def media_popular(*args)
-        options = args.last.is_a?(Hash) ? args.pop : {}
-        id = args.first || "self"
-        response = get("media/popular", options)
+      def all_medias(*args)
+        id = args.first || 'self'
+        response = get("medias")
         response["data"]
-      end
-
-      # Returns media items within proximity of given lat,lng
-      #
-      # @param lat [String] A given latitude in decimal format
-      # @param lng [String] A given longitude in decimal format
-      # @param options [Hash] A customizable set of options.
-      # @option options [Integer] :count The number of media items to retrieve.
-      # @return [Array]
-      # @example Return media around 37.7808851, -122.3948632 (164 S Park, SF, CA USA)
-      # Instagram.media_search("37.7808851", "-122.3948632")
-      # @see TODO:doc url
-      # @format :json
-      # @authenticated false
-      # @rate_limited true
-      def media_search(lat, lng, options={})
-        response = get('media/search', options.merge(:lat => lat, :lng => lng))
-        response
       end
     end
   end

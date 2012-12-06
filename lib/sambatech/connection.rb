@@ -12,6 +12,7 @@ module Sambatech
         :proxy => proxy,
         :ssl => {:verify => false},
         :url => endpoint,
+        :params => {:key => key},
       }
 
       Faraday::Connection.new(options) do |connection|
