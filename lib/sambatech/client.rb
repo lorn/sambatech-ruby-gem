@@ -10,7 +10,7 @@ module Sambatech
 
     # include Sambatech::Client::Users
     include Sambatech::Client::Media
-    # include Sambatech::Client::Locations
+    include Sambatech::Client::Channels
     # include Sambatech::Client::Geographies
     # include Sambatech::Client::Tags
     # include Sambatech::Client::Comments

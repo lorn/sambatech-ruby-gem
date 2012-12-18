@@ -8,13 +8,13 @@ module FaradayMiddleware
       @app.call(env).on_complete do |response|
         case response[:status].to_i
         when 400
-          raise Instagram::BadRequest, error_message_400(response)
+          raise Sambatech::BadRequest, error_message_400(response)
         when 404
-          raise Instagram::NotFound, error_message_400(response)
+          raise Sambatech::NotFound, error_message_400(response)
         when 500
-          raise Instagram::InternalServerError, error_message_500(response, "Something is technically wrong.")
+          raise Sambatech::InternalServerError, error_message_500(response, "Something is technically wrong.")
         when 503
-          raise Instagram::ServiceUnavailable, error_message_500(response, "Instagram is rate limiting your requests.")
+          raise Sambatech::ServiceUnavailable, error_message_500(response, "Sambatech is rate limiting your requests.")
         end
       end
     end
@@ -33,8 +33,9 @@ module FaradayMiddleware
     def error_body(body)
       # body gets passed as a string, not sure if it is passed as something else from other spots?
       if not body.nil? and not body.empty? and body.kind_of?(String)
+        puts "Body: #{body}"
         # removed multi_json thanks to wesnolte's commit
-        body = ::JSON.parse(body)
+        body = ::XML.parse(body)
       end
 
       if body.nil?

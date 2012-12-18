@@ -5,26 +5,34 @@ module Sambatech
       # Returns extended information of a given media item
       #
       # @overload media_item(id)
-      # @param user [Integer] An Instagram media item ID
+      # @param media-id [Hash] An Sambatech media item ID
       # @return [Hashie::Mash] The requested media item.
       # @example Return extended information for media item 1234
       # Instagram.media_item(1324)
-      # @format :json
-      # @authenticated false unless requesting media from a protected user
+      # @format :xml
       #
       # If getting this data of a protected user, you must authenticate (and be allowed to see that user).
       # @rate_limited true
       # @see TODO:docs url
-      def media(*args)
+      # first   [Número] (opcional) Posição inicial da lista. (valor padrão:0)  query
+      # limit   [Número] (opcional) Número de elementos na lista, limitado a 50. (valor padrão:50)  query
+      # search  [String] (opcional) O parâmetro search deve ser usado para definir critérios para a busca. Entre parênteses estão os operadores usados durante a busca (implícitos). Os únicos operadores que devem ser explicitados são: (>, <, >=, <=). O operador (==) deve ser usado como no exemplo anterior. Os campos do objeto Media que podem ser usados são:
+      def media(*args,options)
         id = args.first || 'self'
-        response = get("medias/#{id}")
-        response["data"]
+        response = get("medias/#{id}", options)
+        response["Media"]
       end
 
-      def all_medias(*args)
+      def media_file_url(*args,options)
         id = args.first || 'self'
-        response = get("medias")
-        response["data"]
+        response = get("medias/urls/#{id}", options)
+        response["URLs"]["URL"]["uri"]
+      end
+
+      def all_medias(*args,options)
+        id = args.first || 'self'
+        response = get("medias", options)
+        response
       end
     end
   end
