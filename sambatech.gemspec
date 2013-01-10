@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('hashie', ['~> 1.0.2'])
   s.add_runtime_dependency('rash', ['~> 0.3.2'])
   s.name        = 'sambatech'
-  s.version     = 'Sambatech::VERSION.dup'
+  s.version     = '0.0.1'
   s.date        = '2012-12-05'
   s.summary     = %q{Ruby wrapper for the Sambatech API}
   s.description = "A simple hello world gem"

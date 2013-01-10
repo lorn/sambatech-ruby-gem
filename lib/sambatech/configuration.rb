@@ -25,12 +25,12 @@ module Sambatech
     DEFAULT_ADAPTER = Faraday.default_adapter
 
     # By default, don't set a user key
-    DEFAULT_KEY = nil
+    DEFAULT_KEY = 'you need to set a key'
 
     # The endpoint that will be used to connect if none is set
     #
     # @note There is no reason to use any other endpoint at this time
-    DEFAULT_ENDPOINT = 'http://fast.api.liquidplatform.com/2.0/'.freeze
+    DEFAULT_ENDPOINT = 'http://fast.api.liquidplatform.com/2.0'.freeze
 
     # The response format appended to the path and sent in the 'Accept' header if none is set
     #
