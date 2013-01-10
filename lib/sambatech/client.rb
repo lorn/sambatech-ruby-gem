@@ -5,17 +5,8 @@ module Sambatech
   # @see TODO:doc_url
   class Client < API
     Dir[File.expand_path('../client/*.rb', __FILE__)].each{|f| require f}
-
-    # include Sambatech::Client::Utils
-
-    # include Sambatech::Client::Users
     include Sambatech::Client::Media
     include Sambatech::Client::Channels
-    # include Sambatech::Client::Geographies
-    # include Sambatech::Client::Tags
-    # include Sambatech::Client::Comments
-    # include Sambatech::Client::Likes
-    # include Sambatech::Client::Subscriptions
   end
 end
 

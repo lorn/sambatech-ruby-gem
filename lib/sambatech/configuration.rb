@@ -4,7 +4,7 @@ require File.expand_path('../version', __FILE__)
 module Sambatech
   # Defines constants and methods related to configuration
   module Configuration
-    # An array of valid keys in the options hash when configuring a {Instagram::API}
+    # An array of valid keys in the options hash when configuring a {Sambatech::API}
     VALID_OPTIONS_KEYS = [
       :adapter,
       :key,
