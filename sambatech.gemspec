@@ -3,6 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "sambatech/version"
 
 Gem::Specification.new do |s|
+  s.add_development_dependency('rake', '~> 10.0.3')
   s.add_development_dependency('rspec', '~> 2.11.0')
   s.add_development_dependency('webmock', '~> 1.6')
   s.add_development_dependency('bluecloth', '~> 2.0.11')
