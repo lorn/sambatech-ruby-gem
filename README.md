@@ -1,6 +1,5 @@
-sambatech
+sambatech [![Build Status](https://travis-ci.org/lorn/sambatech-ruby-gem.png?branch=master)](https://travis-ci.org/lorn/sambatech-ruby-gem)
 =========
-[![Build Status](https://travis-ci.org/lorn/sambatech-ruby-gem.png?branch=master)](https://travis-ci.org/lorn/sambatech-ruby-gem)
 
 A Ruby wrapper for the Sambatech REST and Search APIs
 
