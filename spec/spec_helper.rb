@@ -4,12 +4,12 @@ rescue LoadError
   # ignore
 else
   SimpleCov.start do
-    add_group 'Sambatech', 'lib/Sambatech'
+    add_group 'Sambatech', 'lib/sambatech'
     add_group 'Specs', 'spec'
   end
 end
 
-require File.expand_path('../../lib/Sambatech', __FILE__)
+require File.expand_path('../../lib/sambatech', __FILE__)
 
 require 'rspec'
 require 'webmock/rspec'
